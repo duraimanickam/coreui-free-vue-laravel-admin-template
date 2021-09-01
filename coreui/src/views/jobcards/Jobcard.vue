@@ -84,13 +84,13 @@
             :items="logitems"
             :fields="logfields"
             
-          >
-          
-        </CDataTable>
+              >
+              
+            </CDataTable>
 
             <table class="table">
               <thead>
-                <tr><td></td><td>Description</td><td></td></tr>
+                <tr><td></td><td>Description</td><td>Status</td><td></td></tr>
               </thead>
               <tbody>
               <tr v-for="(update, k) in updates" :key="k">
@@ -103,12 +103,19 @@
                       
                   </td>
                   <td>
+                    <CSelect
+                      :value.sync="update.status"
+                      :options="[{label:'Pending',value:'Pending'},{label:'Impeded',value:'Impeded'}, {label:'Completed',value:'Completed'}]"
+                    >
+                    </CSelect>
+                  </td>
+                  <td>
                     <CButton color="success" @click="addRow">+</CButton>
                   </td>
                   
                   
               </tr>
-              </tbody>
+            </tbody>
   </table>
 
                 
@@ -136,11 +143,12 @@ export default {
   data: () => {
     return {
       logitems: [],
-      logfields: ['date', 'user', 'description'], 
+      logfields: ['date', 'user', 'description', 'status'], 
       updates: [{
                 date: '',
                 user: '',
-                description: ''
+                description: '',
+                status:'Pending'
             }],
       jobcard: {
           id: null,
@@ -159,6 +167,7 @@ export default {
                 date: '',
                 user: '',
                 description: '',
+                status: '',
                 
             });
     },
@@ -166,16 +175,16 @@ export default {
 
 
           let self = this;
-        axios.post(  this.$apiAdress + '/api/jobcard-updates?jobcard_id='+self.$route.params.id+'&token=' + localStorage.getItem("api_token"),
-         {
-          updates:JSON.stringify(self.updates)
-         } 
-        )
-        .then(function (response) {
+          axios.post(  this.$apiAdress + '/api/jobcard-updates?jobcard_id='+self.$route.params.id+'&token=' + localStorage.getItem("api_token"),
+          {
+            updates:JSON.stringify(self.updates)
+          } 
+          )
+          .then(function (response) {
             
             self.message = 'Successfully added updates.';
             self.showAlert();
-        }).catch(function (error) {
+          }).catch(function (error) {
             if(error.response.data.message == 'The given data was invalid.'){
               self.message = '';
               for (let key in error.response.data.errors) {

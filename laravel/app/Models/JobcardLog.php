@@ -14,7 +14,7 @@ class JobcardLog extends Model
      * @var array
      */
     protected $fillable = [
-        'jobcard_id', 'user_id', 'description'
+        'jobcard_id', 'user_id', 'description', 'status'
     ];
 
     /**

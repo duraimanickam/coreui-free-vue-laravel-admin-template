@@ -7,8 +7,7 @@
             Jobcards
         </CCardHeader>
         <CCardBody>
-          <CButton color="primary" @click="createJobcard()">Create Jobcard</CButton>
-          <CButton color="success" @click="jobcardReport()">Jobcard Reports</CButton>
+          <CButton color="success" @click="createJobcard()">Download</CButton>
           <CAlert
             :show.sync="dismissCountDown"
             color="primary"
@@ -35,16 +34,8 @@
               <CButton color="primary" @click="showJobcard( item.id )">Show</CButton>
             </td>
           </template>
-          <template #edit="{item}">
-            <td>
-              <CButton color="primary" @click="editJobcard( item.id )">Edit</CButton>
-            </td>
-          </template>
-          <template #delete="{item}">
-            <td>
-              <CButton v-if="you!=item.id" color="danger" @click="deleteJobcard( item.id )">Delete</CButton>
-            </td>
-          </template>
+          
+          
         </CDataTable>
         </CCardBody>
       </CCard>
@@ -93,9 +84,6 @@ export default {
     },
     createJobcard () {
       this.$router.push({path: 'jobcards/create'});
-    },
-    jobcardReport () {
-      this.$router.push({path: 'jobcards/reports'});
     },
     editLink (id) {
       return `jobcards/${id.toString()}/edit`

@@ -203,7 +203,12 @@ class JobcardController extends Controller
         $updates = json_decode($request->updates);
         Log::info('Updates:', $updates);
         foreach($updates as $update){
-            JobcardLog::create(['user_id'=>$user->id, 'jobcard_id'=>$request->jobcard_id, 'description'=>$update->description]);
+            JobcardLog::create([
+                'user_id'=>$user->id,
+                'jobcard_id'=>$request->jobcard_id,
+                'description'=>$update->description,
+                'status'=>$update->status
+            ]);
         }
 
         return response()->json( ['status' => 'success'] );

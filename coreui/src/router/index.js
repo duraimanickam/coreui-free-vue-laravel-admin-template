@@ -139,6 +139,7 @@ const Jobcards = () => import('@/views/jobcards/Jobcards')
 const Jobcard = () => import('@/views/jobcards/Jobcard')
 const EditJobcard = () => import('@/views/jobcards/EditJobcard')
 const CreateJobcard = () => import('@/views/jobcards/CreateJobcard')
+const ReportJobcard = () => import('@/views/jobcards/ReportJobcard')
 
 
 Vue.use(Router)
@@ -607,6 +608,15 @@ function configRoutes () {
               meta: { label: 'Create Job Card' },
               name: 'Create Job card',
               component: CreateJobcard,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+            {
+              path: 'reports',
+              meta: { label: 'Job Card Reports' },
+              name: 'Job Card Reports',
+              component: ReportJobcard,
               meta:{
                 requiresAdmin: true
               }

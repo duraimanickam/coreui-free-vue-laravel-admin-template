@@ -19,6 +19,7 @@ class JobcardLogResource extends JsonResource
             'id' => $this->id,
             'user' => $this->user->name,
             'description' => $this->description,
+            'status' => $this->status,
             'date' => Carbon::parse($this->created_at)->format('d-m-Y'),
             'updated_at' => $this->updated_at,
         ];
