@@ -1,5 +1,24 @@
 <template>
   <div>
+  <CCard>
+        <CCardBody>
+          <CRow>
+            <CCol sm="5">
+              <CWidgetIcon
+              header="Carewel"
+              text="Jobcards"
+              color="primary"
+            >
+            <a href="/#/jobcards"><CIcon name="cil-settings"/></a>
+      </CWidgetIcon>
+            </CCol>
+          </CRow>
+        </CCardBody>
+  </CCard>          
+  </div>
+</template>
+<!--<template>
+  <div>
     <WidgetsDropdown/>
     <CCard>
       <CCardBody>
@@ -451,7 +470,7 @@
       </CCol>
     </CRow>
   </div>
-</template>
+</template>-->
 
 <script>
 import MainChartExample from './charts/MainChartExample'

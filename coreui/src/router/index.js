@@ -104,6 +104,42 @@ const DeleteMenuElement = () => import('@/views/menuElements/DeleteMenuElement')
 
 const Media = () => import('@/views/media/Media')
 
+// Zones
+const Zones = () => import('@/views/zones/Zones')
+const Zone = () => import('@/views/zones/Zone')
+const EditZone = () => import('@/views/zones/EditZone')
+const CreateZone = () => import('@/views/zones/CreateZone')
+
+// Facilities
+const Facilities = () => import('@/views/facilities/Facilities')
+const Facility = () => import('@/views/facilities/Facility')
+const EditFacility = () => import('@/views/facilities/EditFacility')
+const CreateFacility = () => import('@/views/facilities/CreateFacility')
+
+// Companies
+const Companies = () => import('@/views/companies/Companies')
+const Company = () => import('@/views/companies/Company')
+const EditCompany = () => import('@/views/companies/EditCompany')
+const CreateCompany = () => import('@/views/companies/CreateCompany')
+
+// Buildings
+const Buildings = () => import('@/views/buildings/Buildings')
+const Building = () => import('@/views/buildings/Building')
+const EditBuilding = () => import('@/views/buildings/EditBuilding')
+const CreateBuilding = () => import('@/views/buildings/CreateBuilding')
+
+// Floors
+const Floors = () => import('@/views/floors/Floors')
+const Floor = () => import('@/views/floors/Floor')
+const EditFloor = () => import('@/views/floors/EditFloor')
+const CreateFloor = () => import('@/views/floors/CreateFloor')
+
+// Jobcards
+const Jobcards = () => import('@/views/jobcards/Jobcards')
+const Jobcard = () => import('@/views/jobcards/Jobcard')
+const EditJobcard = () => import('@/views/jobcards/EditJobcard')
+const CreateJobcard = () => import('@/views/jobcards/CreateJobcard')
+
 
 Vue.use(Router)
 
@@ -321,6 +357,274 @@ function configRoutes () {
               meta: { label: 'Edit User' },
               name: 'Edit User',
               component: EditUser,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+          ]
+        },
+        {
+          path: 'zones',
+          meta: { label: 'Zones'},
+          component: {
+            render (c) { return c('router-view') }
+          },
+          children: [
+            {
+              path: '',
+              component: Zones,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+            {
+              path: 'create',
+              meta: { label: 'Create Zone' },
+              name: 'Create Zone',
+              component: CreateZone,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+            {
+              path: ':id',
+              meta: { label: 'Zone Details'},
+              name: 'Zone',
+              component: Zone,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+            {
+              path: ':id/edit',
+              meta: { label: 'Edit Zone' },
+              name: 'Edit Zone',
+              component: EditZone,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+          ]
+        },
+        {
+          path: 'facilities',
+          meta: {
+            label: 'Facilities',
+          },
+          component: {
+            render (c) { return c('router-view') }
+          },
+          children: [
+            {
+              path: '',
+              component: Facilities,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+            {
+              path: 'create',
+              meta: { label: 'Create Facility' },
+              name: 'Create Facility',
+              component: CreateFacility,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+            {
+              path: ':id',
+              meta: { label: 'Facility Details'},
+              name: 'Facility',
+              component: Facility,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+            {
+              path: ':id/edit',
+              meta: { label: 'Edit Facility' },
+              name: 'Edit Facility',
+              component: EditFacility,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+          ]
+        },
+        {
+          path: 'companies',
+          meta: {
+            label: 'Companies',
+          },
+          component: {
+            render (c) { return c('router-view') }
+          },
+          children: [
+            {
+              path: '',
+              component: Companies,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+            {
+              path: 'create',
+              meta: { label: 'Create Company' },
+              name: 'Create Company',
+              component: CreateCompany,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+            {
+              path: ':id',
+              meta: { label: 'Company Details'},
+              name: 'Company',
+              component: Company,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+            {
+              path: ':id/edit',
+              meta: { label: 'Edit Company' },
+              name: 'Edit Company',
+              component: EditCompany,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+          ]
+        },
+        {
+          path: 'buildings',
+          meta: {
+            label: 'Buildings',
+          },
+          component: {
+            render (c) { return c('router-view') }
+          },
+          children: [
+            {
+              path: '',
+              component: Buildings,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+            {
+              path: 'create',
+              meta: { label: 'Create Building' },
+              name: 'Create Building',
+              component: CreateBuilding,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+            {
+              path: ':id',
+              meta: { label: 'Building Details'},
+              name: 'Building',
+              component: Building,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+            {
+              path: ':id/edit',
+              meta: { label: 'Edit Building' },
+              name: 'Edit Building',
+              component: EditBuilding,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+          ]
+        },
+        {
+          path: 'floors',
+          meta: {
+            label: 'Floors',
+          },
+          component: {
+            render (c) { return c('router-view') }
+          },
+          children: [
+            {
+              path: '',
+              component: Floors,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+            {
+              path: 'create',
+              meta: { label: 'Create Floor' },
+              name: 'Create Floor',
+              component: CreateFloor,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+            {
+              path: ':id',
+              meta: { label: 'Floor Details'},
+              name: 'Floor',
+              component: Floor,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+            {
+              path: ':id/edit',
+              meta: { label: 'Edit Floor' },
+              name: 'Edit Floor',
+              component: EditFloor,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+          ]
+        },
+        {
+          path: 'jobcards',
+          meta: {
+            label: 'Jobcards',
+          },
+          component: {
+            render (c) { return c('router-view') }
+          },
+          children: [
+            {
+              path: '',
+              component: Jobcards,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+            {
+              path: 'create',
+              meta: { label: 'Create Job Card' },
+              name: 'Create Job card',
+              component: CreateJobcard,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+            {
+              path: ':id',
+              meta: { label: 'Job card Details'},
+              name: 'Jobcard',
+              component: Jobcard,
+              meta:{
+                requiresAdmin: true
+              }
+            },
+            {
+              path: ':id/edit',
+              meta: { label: 'Edit Job Card' },
+              name: 'Edit Job card',
+              component: EditJobcard,
               meta:{
                 requiresAdmin: true
               }

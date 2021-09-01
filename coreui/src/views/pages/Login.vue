@@ -34,9 +34,15 @@
                   </CCol>
                 </CRow>
               </CForm>
+              <CAlert
+              color="primary"
+              fade
+              >
+              {{ message }}
+              </CAlert>
             </CCardBody>
           </CCard>
-          <CCard
+          <!--<CCard
             color="primary"
             text-color="white"
             class="text-center py-5 d-md-down-none"
@@ -51,7 +57,7 @@
             >
               Register Now!
             </CButton>
-          </CCard>
+          </CCard>-->
         </CCardGroup>
       </CCol>
     </CRow>
