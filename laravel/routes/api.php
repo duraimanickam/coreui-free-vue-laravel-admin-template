@@ -47,6 +47,8 @@ Route::group(['middleware' => 'api'], function ($router) {
 
         Route::post('jobcard-updates','JobcardController@storeUpdates')->name('jobcards.updates');
 
+        Route::get('jobcard-reports','JobcardController@reports')->name('jobcards.reports');
+
 
         Route::resource('buildings',  'BuildingController');   //create Building (resource)
 

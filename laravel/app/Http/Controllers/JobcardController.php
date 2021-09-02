@@ -214,4 +214,25 @@ class JobcardController extends Controller
         return response()->json( ['status' => 'success'] );
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function reports(Request $request)
+    {
+        $period = CarbonPeriod::create('2021-09-01', '2021-06-20');
+        $reports = [];
+
+            // Iterate over the period
+            foreach ($period as $date) {
+                $reports[] = $date->format('d-m-Y');
+            }
+
+        //Log::info('Getting Companies for the building.', ['id' => $building_id]);
+        return response()->json([
+            'reports' => $reports,
+        ]);
+    }
+
 }
